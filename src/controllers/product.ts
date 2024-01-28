@@ -12,15 +12,16 @@ export async function getSearchProduct(
   finalLimit: number,
   finalOffset: number
 ) {
-  const cadenaDeBusquedaCategory = type
-    ? JSON.parse(type)
-        .map((item: string) => `type:${item}`)
-        .join(' OR ')
+  const parseType = JSON.parse(type);
+  const parsePrice = JSON.parse(price);
+  const cadenaDeBusquedaCategory = parseType
+    ? parseType.map((item: string) => `Type:${item}`).join(' OR ')
     : null;
 
-  const cadenaDeBusquedaPrice = price
-    ? `"Unit cost" >= ${price[0]} AND "Unit cost" <= ${price[1]}`
+  const cadenaDeBusquedaPrice = parsePrice
+    ? `"Unit cost" >= ${parsePrice[0]} AND "Unit cost" <= ${parsePrice[1]}`
     : '';
+
   const products = await index
     .search(search || '', {
       hitsPerPage: finalLimit,

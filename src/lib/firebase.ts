@@ -1,6 +1,4 @@
 import admin from 'firebase-admin';
-console.log('FIREBASE ENV:', process.env.FIREBASE);
-
 const serviceAccount = JSON.parse(process.env.FIREBASE as string);
 
 if (!admin.apps.length) {

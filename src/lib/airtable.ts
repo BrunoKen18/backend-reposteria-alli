@@ -16,7 +16,6 @@ async function getDataAirtable() {
     ...r.fields,
   }));
   const res = await tiendaIndex.replaceAllObjects(object);
-  console.log('res', res.objectIDs);
   return res.objectIDs;
 }
 

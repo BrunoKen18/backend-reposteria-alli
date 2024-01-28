@@ -24,9 +24,16 @@ app.get('/featured', async (req: Request, res: Response) => {
 });
 
 app.get('/products', async (req, res) => {
-  const {q,type,price} = req.query;
+  const {q, type, price} = req.query;
   const {finalOffset, finalLimit} = getOffsetAndLimitFomReq(req);
-  const products = await getSearchProduct(q as string,type,price, finalLimit, finalOffset);
+
+  const products = await getSearchProduct(
+    q as string,
+    type,
+    price,
+    finalLimit,
+    finalOffset
+  );
   res.json(products);
 });
 
