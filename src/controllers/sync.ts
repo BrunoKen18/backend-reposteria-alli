@@ -3,7 +3,7 @@ import {index} from '../lib/algolia';
 
 export async function syncAirableInAlgolia() {
   let product = [];
-  const response = await getDataAirtable();
+  await getDataAirtable();
   base('Furniture')
     .select({
       view: 'All furniture',
@@ -29,5 +29,5 @@ export async function syncAirableInAlgolia() {
       }
     );
 
-  return {product, response};
+  return {"TERMINADO"};
 }
