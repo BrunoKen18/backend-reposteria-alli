@@ -29,5 +29,5 @@ export async function syncAirableInAlgolia() {
       }
     );
 
-  return {"TERMINADO"};
+  return {message:"TERMINADO"};
 }
