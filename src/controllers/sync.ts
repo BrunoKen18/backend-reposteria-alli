@@ -1,9 +1,8 @@
-import {base, getDataAirtable} from '../lib/airtable';
+import {base} from '../lib/airtable';
 import {index} from '../lib/algolia';
 
 export async function syncAirableInAlgolia() {
   let product = [];
-  await getDataAirtable();
   base('Furniture')
     .select({
       view: 'All furniture',
